@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
 
-        //3
+        //33
 
         //툴바 삭제
         ActionBar actionBar = getSupportActionBar();
