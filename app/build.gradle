@@ -1,0 +1,72 @@
+apply plugin: 'com.android.application'
+
+android {
+    def date = new Date()
+    def formattedDate = date.format('yyMMddHHmm')
+    def code = formattedDate.toInteger()
+
+    compileSdkVersion 29
+
+    defaultConfig {
+        applicationId "com.benefitsoft.recorder"
+        minSdkVersion 23
+        targetSdkVersion 29
+        versionCode code
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    //dexOptions 추가 : OutOfMemoryError
+    dexOptions {
+        jumboMode true
+        javaMaxHeapSize "4g"
+    }
+
+    //버터이프 구동위해서 필요
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    //버터나이프
+    implementation 'com.jakewharton:butterknife:10.0.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.0.0'
+
+    //dex
+    implementation 'com.android.support:multidex:1.0.3'
+
+    //material
+    implementation 'com.google.android.material:material:1.2.1'
+
+    //글레이드
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.10.0'
+
+    //firebase
+    implementation 'com.google.firebase:firebase-analytics:17.5.0'
+    implementation 'com.google.firebase:firebase-messaging:20.2.4'
+
+    //밀어서잠금해제
+    implementation "com.ncorti:slidetoact:0.9.0"
+
+    //facebook audience
+//    implementation 'com.facebook.android:audience-network-sdk:5.11.0'
+}

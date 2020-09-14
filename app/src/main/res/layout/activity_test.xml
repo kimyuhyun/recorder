@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="#000"
+    android:gravity="bottom"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TestActivity">
+
+    <com.ncorti.slidetoact.SlideToActView
+        android:id="@+id/slide_to_actview"
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:outer_color="@android:color/holo_green_light"
+        android:elevation="6dp"
+        app:border_radius="50dp"
+        app:slider_locked="false"
+        app:text="밀어서 잠금해제" />
+
+</LinearLayout>
